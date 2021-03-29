@@ -4,14 +4,55 @@
         <link rel="stylesheet" href="style.css" type="text/css">
         <meta charset="utf-8" />
         <title>Brinton Foy Reed</title>
-        <link rel="stylesheet" href="<script src="https://kit.fontawesome.com/2b6bb5f566.js" crossorigin="anonymous"></script>">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+
+            }
+
+            body,
+            html {
+                color: white;
+                font-family: 'lato', 'san-serif';
+                display: flex;
+                justify-content: center;
+                min-height: 100vh;
+
+            }
+            body {
+                background-image: url("./background.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: bottom;
+            }
+
+            .center .avatar img {
+                border-radius: 50%;
+                width: 140px;
+                height:140px;
+                margin-top: 5%;
+                object-fit: cover;
+                object-position: 0 -8px;
+            }
+
+            .center {
+                width: 55%;
+                background-color: rgba(0, 0, 0, 0.7);
+                height: 60vh;
+                text-align: center;
+                border-radius: 5px;
+            }
+
+
+        </style>
     </head>
 
     <body>
 
         <div class='center'>
             <div class='avatar'>
-                <img id='myPic' src="./71026734_10216934870656364_4490201927862190080_o.jpg" alt="headshot">
+                <img src="./71026734_10216934870656364_4490201927862190080_o.jpg" alt="headshot">
             </div>
             <div class="content">
                 <h1>Brinton Foy Reed</h1>
@@ -26,10 +67,6 @@
             </div>
 
         </div>
-
-
-
-            <script src="script.js"></script>
         
     </body>
 </html>
