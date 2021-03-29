@@ -1,3 +1,16 @@
 body {
     background:rgba(214, 218, 192, 0.288); 
 }
+
+#myPic {
+    margin: 0%;
+    padding: 0%;
+    height: 400px;
+    width: 400px;
+}
+
+#leftColumn {
+    float: left;
+    width: 232px;
+    background-color: #B0B067;
+}
