@@ -3,6 +3,7 @@
 //document.querySelector('body').appendChild(h2);
 
 const input = document.getElementById('input');
+const face = document.getElementById('avatar');
 
 function clickAlarm() {
     alert('I\'m using Javascript now, baby!');
@@ -10,5 +11,7 @@ function clickAlarm() {
 
 input.addEventListener('click', clickAlarm);
 
+
+face.addEventListener('click', clickAlarm);
 
 
