@@ -13,23 +13,23 @@
 
 //? CONTS N' NODES
 // const BASE_URL = "https://source.unsplash.com/1600x900";
-const IMG_URL = "https://api.unsplash.com/photos/random"
-let searchTerm;
-const SEARCH_SUBJECT = BASE_URL + "/?" + searchTerm;
-const imageContainer = document.getElementById("image-container");
-const nextBtn = document.getElementById("next");
 // cont myAccessKey = J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g;
+// const SEARCH_SUBJECT = BASE_URL + "/?" + searchTerm;
+const IMG_URL = "https://api.unsplash.com/photos/random"
+const imageContainer = document.getElementById("image-container");
+const activityParagraph = document.querySelector("p");
+const nextBtn = document.getElementById("nextAct");
+const boredBtn = document.getElementById("bored");
 const ACT_URL = "tps://www.boredapi.com/api/activity";
+let searchTerm;
 
 
-const renderNewImage = (img) => {
-    imageContainer.append(img);
-}
+
 
 //? SERVER COMMUNICATIONS
-
+//todo fetch auth not working
  const newImg = () => {
-     fetch(BASE_URL, { 
+     fetch(IMG_URL, { 
      headers: {
        Authorization: Client-ID J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g
      }})
@@ -43,7 +43,6 @@ const renderNewImage = (img) => {
       });
     }
   
-
 const newActivity = () => {
     fetch(ACT_URL)
     .then(res => res.json())
@@ -57,11 +56,24 @@ const newActivity = () => {
 }
 
 
-//? EVENT HANDERS
-nextBtn.addEventListener("click", newImg());
-
 
 //? DOM MANIPULATION
+const renderNewImage = img => {
+    console.log(" working")
+    // imageContainer.append(img);
+}
+
+const renderNewActivity = activity => {
+    console.log("also working")
+}
+
+
+
+//? EVENT HANDERS
+nextBtn.addEventListener("click", renderNewImage);
+
+boredBtn.addEventListener("click", renderNewActivity);
+
 
 
 //? HELPER FUNCTIONS

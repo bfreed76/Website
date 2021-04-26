@@ -29,8 +29,8 @@ h2 {
 }
 
 button {
-    width: 10%;
-    height: 15%;
+    width: 15%;
+    height:15%;
     background-color: teal;
     color: white;
     border-radius: 15%;
@@ -48,4 +48,9 @@ ul {
      border-top: 2px solid #ccc;
      margin-top: 20px;
      padding-top: 20px;
+ }
+
+ #bored {
+     width: 50%;
+     height: 50%;
  }
