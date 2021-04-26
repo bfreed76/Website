@@ -15,42 +15,36 @@
 // const BASE_URL = "https://source.unsplash.com/1600x900";
 // cont myAccessKey = J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g;
 // const SEARCH_SUBJECT = BASE_URL + "/?" + searchTerm;
-const IMG_URL = "https://api.unsplash.com/photos/random"
+// const IMG_URL = "https://api.unsplash.com/photos/random"
+const baseImageUrl = "https://loremflickr.com/320/440/animals?random=1"
+const image_subject = "animals" = "?random="
+const image_random_stringer = "?random"
 const imageContainer = document.getElementById("image-container");
 const activityParagraph = document.querySelector("p");
 const nextBtn = document.getElementById("nextAct");
 const boredBtn = document.getElementById("bored");
 const ACT_URL = "tps://www.boredapi.com/api/activity";
+const memeImage = document.getElementById("meme-pic");
 let searchTerm;
 
 
 
 
 //? SERVER COMMUNICATIONS
-//todo fetch auth not working
  const newImg = () => {
-     fetch(IMG_URL, { 
-     headers: {
-       Authorization: 'Client-ID J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g'}})
-    .then(res => res.json())
-    .then(image => {
-        console.log("CONSOLE", image);
-        renderNewImage(image);
-    })
-    .catch(error => {
-        log('Whoopsie!, error')
-    })
-}
+     renderNewImage(IMG_URL);
+    };
+
   
 const newActivity = () => {
     fetch(ACT_URL)
     .then(res => res.json())
     .then(activity => {
-        console.log("#####", activity);
+        console.log("#####fetch activity", activity);
         renderNewActivity(activity);
     })
     .catch(function(error) {
-        log('Request failed', error)
+        console.log('Request failed', error)
       });
 }
 
@@ -58,8 +52,10 @@ const newActivity = () => {
 
 //? DOM MANIPULATION
 const renderNewImage = img => {
-    console.log("image received", img.urls.regular)
-    // imageContainer.append(img);
+    console.log("working!", img)
+    memeImage.src = "";
+    memeImage.src = img;
+    imageContainer.append(memeImage);
 }
 
 const renderNewActivity = activity => {
@@ -69,7 +65,7 @@ const renderNewActivity = activity => {
 
 
 //? EVENT HANDERS
-nextBtn.addEventListener("click", renderNewImage);
+nextBtn.addEventListener("click", newImg);
 
 boredBtn.addEventListener("click", renderNewActivity);
 
