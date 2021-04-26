@@ -31,17 +31,16 @@ let searchTerm;
  const newImg = () => {
      fetch(IMG_URL, { 
      headers: {
-       Authorization: Client-ID J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g
-     }})
+       Authorization: 'Client-ID J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g'}})
     .then(res => res.json())
     .then(image => {
-        console.log("----", image);
+        console.log("CONSOLE", image);
         renderNewImage(image);
     })
-    .catch(function(error) {
-        log('Request failed', error)
-      });
-    }
+    .catch(error => {
+        log('Whoopsie!, error')
+    })
+}
   
 const newActivity = () => {
     fetch(ACT_URL)
@@ -59,7 +58,7 @@ const newActivity = () => {
 
 //? DOM MANIPULATION
 const renderNewImage = img => {
-    console.log(" working")
+    console.log("image received", img.urls.regular)
     // imageContainer.append(img);
 }
 
@@ -78,3 +77,4 @@ boredBtn.addEventListener("click", renderNewActivity);
 
 //? HELPER FUNCTIONS
 
+newImg();
