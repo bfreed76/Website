@@ -54,3 +54,7 @@ ul {
      width: 50%;
      height: 50%;
  }
+
+p {
+    font-weight: bold;
+}

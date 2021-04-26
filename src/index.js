@@ -16,31 +16,32 @@
 // cont myAccessKey = J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g;
 // const SEARCH_SUBJECT = BASE_URL + "/?" + searchTerm;
 // const IMG_URL = "https://api.unsplash.com/photos/random"
-const baseImageUrl = "https://loremflickr.com/320/440/animals?random=1"
-const image_subject = "animals" = "?random="
-const image_random_stringer = "?random"
+const baseImageUrl = "https://loremflickr.com/320/440/"
 const imageContainer = document.getElementById("image-container");
 const activityParagraph = document.querySelector("p");
 const nextBtn = document.getElementById("nextAct");
 const boredBtn = document.getElementById("bored");
-const ACT_URL = "tps://www.boredapi.com/api/activity";
+const ACT_URL = "http://www.boredapi.com/api/activity/";
 const memeImage = document.getElementById("meme-pic");
+let preventCacheRandomNum = 1;
 let searchTerm;
 
 
 
 
 //? SERVER COMMUNICATIONS
- const newImg = () => {
-     renderNewImage(IMG_URL);
+const newImg = () => {
+    ++preventCacheRandomNum
+    let image_random_stringer = "?random" + preventCacheRandomNum
+    const image_subject = "animals" 
+    // let IMG_URL = baseImageUrl + image_subject + image_random_stringer
+    renderNewImage(IMG_URL);
     };
-
   
 const newActivity = () => {
     fetch(ACT_URL)
     .then(res => res.json())
     .then(activity => {
-        console.log("#####fetch activity", activity);
         renderNewActivity(activity);
     })
     .catch(function(error) {
@@ -52,14 +53,14 @@ const newActivity = () => {
 
 //? DOM MANIPULATION
 const renderNewImage = img => {
-    console.log("working!", img)
     memeImage.src = "";
     memeImage.src = img;
     imageContainer.append(memeImage);
 }
 
 const renderNewActivity = activity => {
-    console.log("also working")
+    console.log(activity.type);
+    activityParagraph.innerText = activity.activity + ".";
 }
 
 
@@ -67,7 +68,7 @@ const renderNewActivity = activity => {
 //? EVENT HANDERS
 nextBtn.addEventListener("click", newImg);
 
-boredBtn.addEventListener("click", renderNewActivity);
+boredBtn.addEventListener("click", newActivity);
 
 
 
