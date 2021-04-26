@@ -1,0 +1,51 @@
+* {
+    list-style-image:none;
+    margin: 10px;
+    padding: 2px;
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow:auto;
+}
+
+body {
+    background-color: lavenderblush;
+    background-image: linear-gradient(rgba(219, 152, 214, .1), rgba(180, 30, 118, 0.3));
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 50px;
+}
+
+h2 {
+    border-bottom: 2px solid #ccc;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 16px;
+}
+
+button {
+    width: 10%;
+    height: 15%;
+    background-color: teal;
+    color: white;
+    border-radius: 15%;
+}
+
+ul {
+    display:inline-block;
+}
+
+.bottom-section {
+    clear: both;
+}
+
+ footer.branding {
+     border-top: 2px solid #ccc;
+     margin-top: 20px;
+     padding-top: 20px;
+ }
