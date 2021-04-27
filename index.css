@@ -58,3 +58,20 @@ ul {
 p {
     font-weight: bold;
 }
+
+#memeText {
+    position: absolute;
+    font-weight: 900;
+    font-size: 175%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.white {
+    color: white;
+}
+
+.black {
+    color: black;
+}
