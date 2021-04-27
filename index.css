@@ -1,5 +1,5 @@
 * {
-    list-style-image:none;
+    box-sizing: border-box;
     margin: 10px;
     padding: 2px;
     text-align: center;
@@ -29,8 +29,8 @@ h2 {
 }
 
 button {
-    width: 15%;
-    height:15%;
+    width: 40%;
+    height:30%;
     background-color: teal;
     color: white;
     border-radius: 15%;
@@ -92,13 +92,14 @@ h3 {
      padding-top: 20px;
  } */
   
-  .row {
+ .row {
     display: flex;
   }
   
-  .column {
+.column {
     flex: 50%;
   }
+
 
   @media screen and (max-width: 600px) {
     .column {

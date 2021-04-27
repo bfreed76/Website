@@ -42,7 +42,7 @@ let image_subject = "animals"
 const newImg = () => {
     ++preventCacheRandomNum
     let image_random_stringer = "?lock=" + preventCacheRandomNum
-    // let IMG_URL = baseImageUrl + image_subject + image_random_stringer
+    let IMG_URL = baseImageUrl + image_subject + image_random_stringer
     renderNewImage(IMG_URL);
     };
   
