@@ -24,6 +24,8 @@ const boredBtn = document.getElementById("bored");
 const textColorBtn = document.getElementById("textColor");
 const ACT_URL = "http://www.boredapi.com/api/activity/";
 const memeImage = document.getElementById("meme-pic");
+const topText = document.getElementById("top_text");
+const bottomText = document.getElementById("bottom_text");
 let memeText = document.getElementById("memeText");
 let preventCacheRandomNum = 1;
 let searchTerm;
@@ -36,7 +38,7 @@ const newImg = () => {
     ++preventCacheRandomNum
     let image_random_stringer = "?random" + preventCacheRandomNum
     const image_subject = "animals" 
-    let IMG_URL = baseImageUrl + image_subject + image_random_stringer
+    // let IMG_URL = baseImageUrl + image_subject + image_random_stringer
     renderNewImage(IMG_URL);
     };
   
@@ -67,9 +69,7 @@ const renderNewActivity = activity => {
 }
 
 const changeTextColor = () => {
-
     memeText.classList.toggle("black");
-
 };
 
 
