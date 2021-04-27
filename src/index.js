@@ -18,8 +18,10 @@
 // const IMG_URL = "https://api.unsplash.com/photos/random"
 const baseImageUrl = "https://loremflickr.com/320/440/"
 const imageContainer = document.querySelector(".image-container");
+const imageDownloadLink = document.getElementsByTagName("a");
 const activityParagraph = document.querySelector("p");
 const nextBtn = document.getElementById("nextAct");
+const addTextBtn = document.getElementById("add_text")
 const boredBtn = document.getElementById("bored");
 const textColorBtn = document.getElementById("textColor");
 const ACT_URL = "http://www.boredapi.com/api/activity/";
@@ -36,9 +38,9 @@ let searchTerm;
 //? SERVER COMMUNICATIONS
 const newImg = () => {
     ++preventCacheRandomNum
-    let image_random_stringer = "?random" + preventCacheRandomNum
+    let image_random_stringer = "?lock=" + preventCacheRandomNum
     const image_subject = "animals" 
-    // let IMG_URL = baseImageUrl + image_subject + image_random_stringer
+    let IMG_URL = baseImageUrl + image_subject + image_random_stringer
     renderNewImage(IMG_URL);
     };
   
@@ -59,9 +61,10 @@ const newActivity = () => {
 const renderNewImage = img => {
     memeImage.src = "";
     memeImage.src = img;
+    imageDownloadLink.download = "";
+    imageDownloadLink.download = img;
     imageContainer.append(memeImage);
 }
-
 
 const renderNewActivity = activity => {
     console.log(activity.type);
@@ -72,6 +75,7 @@ const changeTextColor = () => {
     memeText.classList.toggle("black");
 };
 
+const addTextFunction = () => memeImage.append(memeText);
 
 //? EVENT HANDERS
 nextBtn.addEventListener("click", newImg);
@@ -79,6 +83,8 @@ nextBtn.addEventListener("click", newImg);
 boredBtn.addEventListener("click", newActivity);
 
 textColorBtn.addEventListener("click", changeTextColor);
+
+addTextBtn.addEventListener("click", addTextFunction);
 
 //? HELPER FUNCTIONS
 
