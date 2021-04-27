@@ -40,33 +40,39 @@ ul {
     display:inline-block;
 }
 
-.bottom-section {
-    clear: both;
+
+#bored {
+    width: 50%;
+    height: 50%;
 }
-
- footer.branding {
-     border-top: 2px solid #ccc;
-     margin-top: 20px;
-     padding-top: 20px;
- }
-
- #bored {
-     width: 50%;
-     height: 50%;
- }
 
 p {
     font-weight: bold;
 }
 
-#memeText {
-    position: absolute;
+.image-container {
+    position: relative;
+    font-family: Arial;
+}
+
+h3 {
+    text-align: left;
     font-weight: 900;
-    font-size: 175%;
-    top: 45%;
-    left: 50%;
+    font-size: 140%;
     transform: translate(-50%, -50%);
-  }
+}
+
+#top_text {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+}
+
+#bottom_text {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+}
 
 .white {
     color: white;
@@ -75,3 +81,27 @@ p {
 .black {
     color: black;
 }
+
+/* .bottom-section {
+    clear: both;
+}
+
+ footer.branding {
+     border-top: 2px solid #ccc;
+     margin-top: 20px;
+     padding-top: 20px;
+ } */
+  
+  .row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+  }
+
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }

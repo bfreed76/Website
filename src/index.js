@@ -20,27 +20,29 @@ const baseImageUrl = "https://loremflickr.com/320/440/"
 const imageContainer = document.querySelector(".image-container");
 const imageDownloadLink = document.getElementsByTagName("a");
 const activityParagraph = document.querySelector("p");
-const nextBtn = document.getElementById("nextAct");
+const nextBtn = document.getElementById("nextImg");
 const addTextBtn = document.getElementById("add_text")
-const boredBtn = document.getElementById("bored");
 const textColorBtn = document.getElementById("textColor");
+const boredBtn = document.getElementById("bored");
 const ACT_URL = "http://www.boredapi.com/api/activity/";
 const memeImage = document.getElementById("meme-pic");
+const topTextInput = document.getElementById("top_text_input");
+const bottomTextInput = document.getElementById("bottom_text_input");
 const topText = document.getElementById("top_text");
 const bottomText = document.getElementById("bottom_text");
-let memeText = document.getElementById("memeText");
-let preventCacheRandomNum = 1;
+let h3 = document.querySelectorAll("h3");
+let preventCacheRandomNum = 2;
 let searchTerm;
+const changeBtn = document.getElementById("changeCat");  //change button
+const catagoryInput = document.getElementById("cat_input")
+let image_subject = "animals" 
 
 
-
-
-//? SERVER COMMUNICATIONS
+//~ SERVER COMMUNICATIONS
 const newImg = () => {
     ++preventCacheRandomNum
     let image_random_stringer = "?lock=" + preventCacheRandomNum
-    const image_subject = "animals" 
-    let IMG_URL = baseImageUrl + image_subject + image_random_stringer
+    // let IMG_URL = baseImageUrl + image_subject + image_random_stringer
     renderNewImage(IMG_URL);
     };
   
@@ -57,12 +59,11 @@ const newActivity = () => {
 
 
 
-//? DOM MANIPULATION
+//~ DOM MANIPULATION
 const renderNewImage = img => {
+    image_subject = catagoryInput.value;
     memeImage.src = "";
     memeImage.src = img;
-    imageDownloadLink.download = "";
-    imageDownloadLink.download = img;
     imageContainer.append(memeImage);
 }
 
@@ -72,21 +73,28 @@ const renderNewActivity = activity => {
 }
 
 const changeTextColor = () => {
-    memeText.classList.toggle("black");
+    topText.classList.toggle("black");
+    bottomText.classList.toggle("black");
 };
 
-const addTextFunction = () => memeImage.append(memeText);
+const displayText = () => {
+    console.log("displayText", topTextInput.value);
+    topText.innerText = topTextInput.value;
+    bottomText.innerText = bottomTextInput.value;
+}
 
-//? EVENT HANDERS
+
+//~ EVENT HANDERS
 nextBtn.addEventListener("click", newImg);
 
 boredBtn.addEventListener("click", newActivity);
 
 textColorBtn.addEventListener("click", changeTextColor);
 
-addTextBtn.addEventListener("click", addTextFunction);
+addTextBtn.addEventListener("click", displayText);
 
-//? HELPER FUNCTIONS
+
+//~ HELPER FUNCTIONS
 
 
 

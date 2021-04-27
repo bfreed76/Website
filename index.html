@@ -2,6 +2,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Mom's Meme Maker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="index.css">
     <script defer src="src/index.js"></script>
   </head>
@@ -10,27 +11,40 @@
 
     <h1>Your Mom's Magical Meme Maker</h1>
 
+
+  
+
+    
       <div id="nav">
-        <button id="save">Save Meme</button>  <!-- adding text deletes existing?-->
-        <button id="nextAct">Next Image</button>
-        <br>
-        <button id="textColor">Change Text Color</button>   
-        <button id="search">Search Images</button>
-        <br>
-        <button id="add_text">Add Text</button>
+      <button id="nextImg" class = "floatLeft">Next Image</button>                              <!--next image-->
+      <br>
+      <input type="text" class = "floatLeft" id="cat_input" placeholder="Enter photo category here" maxlength="10"> <!--category-->
+      <br>
+      <button id="textColor" class = "floatLeft" >Change Text Color</button>                    <!--text color-->
       </div>
-      <div id="input">
-        <input type="text" id="top_text" placeholder="top text">
+
+      <div> 
+      <button id="add_text">Add Text</button>                     <!--Add text-->
+      <br>                                           
+        <input type="text" id="top_text_input" placeholder="Top caption here" maxlength="24"> <!--top text-->
         <br>
-        <input type="text" id="bottom_text" placeholder="bottom">
+        <input type="text" id="bottom_text_input" placeholder="Bottom caption here" maxlength="24"> <!--bottom text-->
       </div>
+   
+
+
+
+
 
       <hr>
       
       <div class="image-container"> 
         <a download=""></a>
-        <img id="meme-pic" src="" alt="">
-        <div id="memeText" class="white">Centered Textaroo</div>
+        <img id="meme-pic" src="" alt="random photo"> 
+          <div id="memeText" ></div>  
+            <h3  id="top_text" class="white"></h3>
+            <h3  id="bottom_text" class="white"></h3>  
+
         </div>
         
       <ul> 
