@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    margin: 10px;
+    margin: 5px;
     padding: 2px;
     text-align: center;
 }
@@ -29,8 +29,8 @@ h2 {
 }
 
 button {
-    width: 40%;
-    height:30%;
+    width:  20ex;
+    height: 5ex;
     background-color: teal;
     color: white;
     border-radius: 15%;
@@ -81,6 +81,30 @@ h3 {
 .black {
     color: black;
 }
+.column {
+    float: left;
+    width: 33.33%;
+    margin: 0;
+    padding-top: 0%;
+    position:relative 
+}
+
+#center {
+    transform: translate(0,25%);
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
 
 /* .bottom-section {
     clear: both;
@@ -92,17 +116,3 @@ h3 {
      padding-top: 20px;
  } */
   
- .row {
-    display: flex;
-  }
-  
-.column {
-    flex: 50%;
-  }
-
-
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-    }
-  }

@@ -42,7 +42,8 @@ let image_subject = "animals"
 const newImg = () => {
     ++preventCacheRandomNum
     let image_random_stringer = "?lock=" + preventCacheRandomNum
-    let IMG_URL = baseImageUrl + image_subject + image_random_stringer
+    image_subject = catagoryInput.value;   //todo doesn't change category with first click
+    let IMG_URL = baseImageUrl + image_subject + image_random_stringer  //FIX IMAGE CATEGORY
     renderNewImage(IMG_URL);
     };
   
@@ -61,7 +62,6 @@ const newActivity = () => {
 
 //~ DOM MANIPULATION
 const renderNewImage = img => {
-    image_subject = catagoryInput.value;
     memeImage.src = "";
     memeImage.src = img;
     imageContainer.append(memeImage);
