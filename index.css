@@ -90,7 +90,7 @@ h3 {
 }
 
 #center {
-    transform: translate(0,25%);
+    transform: translate(0,5%);
 }
 
 /* Clear floats after the columns */
@@ -105,6 +105,14 @@ h3 {
         width: 100%;
     }
 }
+
+ canvas {
+     border: 1px solid black;
+     /* height: 441px; */
+     /* width: 321px; */
+     background-color: blanchedalmond;
+     object-fit: contain;
+ }
 
 /* .bottom-section {
     clear: both;

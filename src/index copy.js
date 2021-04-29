@@ -21,7 +21,7 @@ const imageContainer = document.querySelector(".image-container");
 const imageDownloadLink = document.getElementsByTagName("a");
 const activityParagraph = document.querySelector("p");
 const nextBtn = document.getElementById("nextImg");
-// const addTextBtn = document.getElementById("add_text")
+const addTextBtn = document.getElementById("add_text")
 const textColorBtn = document.getElementById("textColor");
 const boredBtn = document.getElementById("bored");
 const ACT_URL = "http://www.boredapi.com/api/activity/";
@@ -30,7 +30,6 @@ const topTextInput = document.getElementById("top_text_input");
 const bottomTextInput = document.getElementById("bottom_text_input");
 const topText = document.getElementById("top_text");
 const bottomText = document.getElementById("bottom_text");
-const canvas = document.querySelector("canvas");
 let h3 = document.querySelectorAll("h3");
 let preventCacheRandomNum = 2;
 let searchTerm;
@@ -46,8 +45,8 @@ const newImg = () => {
     image_subject = catagoryInput.value;   //todo doesn't change category with first click
     let IMG_URL = baseImageUrl + image_subject + image_random_stringer  //FIX IMAGE CATEGORY
     renderNewImage(IMG_URL);
-};
-
+    };
+  
 const newActivity = () => {
     fetch(ACT_URL)
     .then(res => res.json())
@@ -56,25 +55,22 @@ const newActivity = () => {
     })
     .catch(function(error) {
         console.log('Request failed', error)
-    });
+      });
 }
 
 
-let c = canvas.getContext('2d');
 
 //~ DOM MANIPULATION
 const renderNewImage = img => {
     memeImage.src = "";
     memeImage.src = img;
-    memeImage.onload = () => {
-    c.drawImage(memeImage, 0, 0, 320, 440)   // CANVAS
     imageContainer.append(memeImage);
-}};
+}
 
 const renderNewActivity = activity => {
     console.log(activity.type);
     activityParagraph.innerText = activity.activity + ".";
-};
+}
 
 const changeTextColor = () => {
     topText.classList.toggle("black");
@@ -85,19 +81,8 @@ const displayText = () => {
     console.log("displayText", topTextInput.value);
     topText.innerText = topTextInput.value;
     bottomText.innerText = bottomTextInput.value;
-};
-
-const canvasDisplayText = (msg) => {
-    console.log(msg, msg.data)
-    c.font = 'normal 48px, Impact, Arial, Comic Sans';
-    c.fillStyle = 'white';
-        // center, left, right, end, start
-    c.textAlign = 'start';
-        //top, hanging, middle, bottom, ideagraphic, alphabetic
-    c.textBaseline = "alphabetic";
-    c.direction = 'ltr';
-    c.fillText(msg.data, 100, 100);
 }
+
 
 //~ EVENT HANDERS
 nextBtn.addEventListener("click", newImg);
@@ -106,13 +91,11 @@ boredBtn.addEventListener("click", newActivity);
 
 textColorBtn.addEventListener("click", changeTextColor);
 
-topTextInput.addEventListener("input", displayText);
+addTextBtn.addEventListener("click", displayText);
 
-topTextInput.addEventListener("input", canvasDisplayText)
-
- bottomTextInput.addEventListener("input", displayText);
 
 //~ HELPER FUNCTIONS
+
 
 
 newImg();
