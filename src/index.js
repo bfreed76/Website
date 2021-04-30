@@ -37,6 +37,8 @@ let searchTerm;
 const changeBtn = document.getElementById("changeCat");  //change button
 const catagoryInput = document.getElementById("cat_input")
 let image_subject = "animals" 
+let c = canvas.getContext('2d');
+const canvasTopText = document.getElementById("canvasTopText");
 
 
 //~ SERVER COMMUNICATIONS
@@ -60,44 +62,36 @@ const newActivity = () => {
 }
 
 
-let c = canvas.getContext('2d');
 
 //~ DOM MANIPULATION
 const renderNewImage = img => {
     memeImage.src = "";
     memeImage.src = img;
     memeImage.onload = () => {
-    c.drawImage(memeImage, 0, 0, 320, 440)   // CANVAS
-    imageContainer.append(memeImage);
-}};
-
-const renderNewActivity = activity => {
-    console.log(activity.type);
-    activityParagraph.innerText = activity.activity + ".";
-};
-
-const changeTextColor = () => {
-    topText.classList.toggle("black");
-    bottomText.classList.toggle("black");
-};
-
-const displayText = () => {
-    console.log("displayText", topTextInput.value);
-    topText.innerText = topTextInput.value;
-    bottomText.innerText = bottomTextInput.value;
-};
-
-const canvasDisplayText = (msg) => {
-    console.log(msg, msg.data)
-    c.font = 'normal 48px, Impact, Arial, Comic Sans';
-    c.fillStyle = 'white';
-        // center, left, right, end, start
-    c.textAlign = 'start';
-        //top, hanging, middle, bottom, ideagraphic, alphabetic
-    c.textBaseline = "alphabetic";
-    c.direction = 'ltr';
-    c.fillText(msg.data, 100, 100);
-}
+        c.drawImage(memeImage, 0, 0, 320, 440)   // CANVAS
+        imageContainer.append(memeImage);
+    }};
+    
+    const renderNewActivity = activity => {
+        console.log(activity.type);
+        activityParagraph.innerText = activity.activity + ".";
+    };
+    
+    const changeTextColor = () => {
+        topText.classList.toggle("black");
+        bottomText.classList.toggle("black");
+    };
+    
+    const displayText = () => {
+        // console.log("displayText", topTextInput.value);
+        topText.innerText = topTextInput.value;
+        bottomText.innerText = bottomTextInput.value;
+    };
+    
+    const canvasDisplayText = (msg) => {
+        console.log('canvasDisplayTest', msg.data);
+        canvasTopText = msg.data;
+    };
 
 //~ EVENT HANDERS
 nextBtn.addEventListener("click", newImg);
@@ -107,10 +101,10 @@ boredBtn.addEventListener("click", newActivity);
 textColorBtn.addEventListener("click", changeTextColor);
 
 topTextInput.addEventListener("input", displayText);
+bottomTextInput.addEventListener("input", displayText);
 
 topTextInput.addEventListener("input", canvasDisplayText)
 
- bottomTextInput.addEventListener("input", displayText);
 
 //~ HELPER FUNCTIONS
 
