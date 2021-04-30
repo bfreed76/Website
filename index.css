@@ -55,13 +55,25 @@ p {
     font-family: Arial;
 }
 
-h3 {
-    text-align: left;
+h3 { 
+    position: absolute;
+    left: 50%;
     font-weight: 900;
-    font-size: 140%;
+    font-size: 30px;
     transform: translate(-50%, -50%);
+} 
+
+#memeText {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+#top_text {
+    top: 15%;
+}
+
+#bottom_text {
+    top: 90%;
+}
 
 .white {
     color: white;
@@ -70,6 +82,7 @@ h3 {
 .black {
     color: black;
 }
+
 .column {
     float: left;
     width: 33.33%;
@@ -81,7 +94,6 @@ h3 {
 #center {
     transform: translate(0,5%);
 }
-
 /* Clear floats after the columns */
 .row:after {
     content: "";
@@ -95,28 +107,6 @@ h3 {
     }
 }
 
-#canvasContainer {
-    width: 320;
-    height: 440;
-    position: relative;
-}
-
-canvas {
-    border: 1px solid black;
-    background-color: blanchedalmond;
-    object-fit: contain;
-}
-
-#canvasTopText {
-    position: relative;
-    border: transparent;
-    background-color: transparent;
-    left: -350px;
-    top: -400px;
-    font-size: 22px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
 /* .bottom-section {
     clear: both;
 }
@@ -125,16 +115,4 @@ footer.branding {
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
-} */
-
-/* #top_text {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-}
-
-#bottom_text {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-} */
+}  */
