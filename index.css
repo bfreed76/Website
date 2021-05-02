@@ -3,6 +3,7 @@
     margin: 5px;
     padding: 2px;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 html, body {
@@ -19,13 +20,26 @@ body {
 h1 {
     font-size: 36px;
     line-height: 50px;
+    background-color: rgb(236, 136, 118);
+    width: 75%;
+    margin:auto;
 }
 
 h2 {
-    border-bottom: 2px solid #ccc;
     font-size: 24px;
     line-height: 36px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+}
+
+hr {
+    border-bottom: 5px yellow;
+    background-color: rgb(236, 136, 118);
+    margin-bottom: 2%;
+}
+
+#fullLine {
+    margin: auto;
+    width: 75%;
 }
 
 button {
@@ -40,39 +54,25 @@ ul {
     display:inline-block;
 }
 
-
-#bored {
-    width: 50%;
-    height: 50%;
+#cat_Input {
+    background-color: wheat;
 }
 
 p {
     font-weight: bold;
+    padding-top: .75%;
 }
-
-.image-container {
-    position: relative;
-    font-family: Arial;
-}
-
-h3 { 
-    position: absolute;
-    left: 50%;
-    font-weight: 900;
-    font-size: 30px;
-    transform: translate(-50%, -50%);
-} 
 
 #memeText {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #top_text {
-    top: 15%;
+    top: 14%;
 }
 
 #bottom_text {
-    top: 90%;
+    top: 86%;
 }
 
 .white {
@@ -83,36 +83,53 @@ h3 {
     color: black;
 }
 
-.column {
-    float: left;
-    width: 33.33%;
-    margin: 0;
-    padding-top: 0%;
-    position:relative 
+.image-container {
+    position: relative;
+    padding-right: 35px;
 }
 
-#center {
-    transform: translate(0,5%);
+.row {
+    width: 100%;
+    padding-left: 14%;
 }
-/* Clear floats after the columns */
+
+.column {
+    float: left;
+}
+
+.left {
+    width: 300px;
+    padding-left: 25px;
+    padding-top: 4%;
+}
+
+.right {
+    width: 450px;
+}
+
+
 .row:after {
     content: "";
     display: table;
-    clear: both;
+    clear: both; 
 }
+
+h3 { 
+    position: absolute;
+    left: 45%;
+    font-weight: 900;
+    font-size: 180%;
+    transform: translate(-50%, -50%);
+} 
+
+#activity {
+    font-family: cursive;
+    font-size: 20px;
+}
+
 
 @media screen and (max-width: 600px) {
     .column {
         width: 100%;
     }
 }
-
-/* .bottom-section {
-    clear: both;
-}
-
-footer.branding {
-    border-top: 2px solid #ccc;
-    margin-top: 20px;
-    padding-top: 20px;
-}  */

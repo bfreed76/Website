@@ -1,31 +1,18 @@
-/* As a user, I want to...
-    - easily make a custom meme
-    - save a custom meme to my computer 
-    - get ideas of what activity to do next, just like sweet ol' mom would give
-    - STRETCH
-    - save a custom meme to a collection
-    - view a collection of other people's memes
-    - 'like' other people's memes
-    - share my meme through one or more social media channels
-*/
+
 
 //~ CONTS N' NODES
-// const BASE_URL = "https://source.unsplash.com/1600x900";
-// cont myAccessKey = J5TXtia41iBcVzbeo838Y7DwTnO_VGhNTdVMKVWCU2g;
-// const SEARCH_SUBJECT = BASE_URL + "/?" + searchTerm;
-// const IMG_URL = "https://api.unsplash.com/photos/random"
 const baseImageUrl = "https://loremflickr.com/320/440/"
 const imageContainer = document.querySelector(".image-container");
 const imageDownloadLink = document.getElementsByTagName("a");
-const activityParagraph = document.querySelector("p");
+const activityParagraph = document.getElementById("activity");
 const nextBtn = document.getElementById("nextImg");
 const addTextBtn = document.getElementById("add_text")
 const textColorBtn = document.getElementById("textColor");
 const boredBtn = document.getElementById("bored");
 const ACT_URL = "http://www.boredapi.com/api/activity/";
 const memeImage = document.getElementById("meme-pic");
-const topTextInput = document.getElementById("top_text_input");
-const bottomTextInput = document.getElementById("bottom_text_input");
+let topTextInput = document.getElementById("top_text_input");
+let bottomTextInput = document.getElementById("bottom_text_input");
 const topText = document.getElementById("top_text");
 const bottomText = document.getElementById("bottom_text");
 let h3 = document.querySelectorAll("h3");
@@ -38,10 +25,12 @@ let image_subject = "animals"
 
 //~ SERVER COMMUNICATIONS
 const newImg = () => {
+    topText.innerText = "";
+    bottomText.innerText = "";
     ++preventCacheRandomNum
     let image_random_stringer = "?lock=" + preventCacheRandomNum
-    image_subject = catagoryInput.value;   //todo doesn't change category with first click
-    let IMG_URL = baseImageUrl + image_subject + image_random_stringer  //FIX IMAGE CATEGORY
+    image_subject = catagoryInput.value;  
+    let IMG_URL = baseImageUrl + image_subject + image_random_stringer  
     renderNewImage(IMG_URL);
     };
   
@@ -61,11 +50,14 @@ const renderNewImage = img => {
     memeImage.src = "";
     memeImage.src = img;
     imageContainer.append(memeImage);
+    setTimeout(() => {displayText();},900);
 }
 
 const renderNewActivity = activity => {
     console.log(activity.type);
-    activityParagraph.innerText = activity.activity + ".";
+    let activityText = activity.activity;
+    activityText = activityText.toLowerCase();
+    activityParagraph.innerText = activityText + ".\"";
 }
 
 const changeTextColor = () => {
@@ -74,7 +66,6 @@ const changeTextColor = () => {
 };
 
 const displayText = () => {
-    console.log("displayText", topTextInput.value);
     topText.innerText = topTextInput.value;
     bottomText.innerText = bottomTextInput.value;
 }
@@ -88,6 +79,7 @@ boredBtn.addEventListener("click", newActivity);
 textColorBtn.addEventListener("click", changeTextColor);
 
 topTextInput.addEventListener("input", displayText);
+
 bottomTextInput.addEventListener("input", displayText);
 
 //~ HELPER FUNCTIONS
