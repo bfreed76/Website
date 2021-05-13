@@ -10,6 +10,7 @@ html, body {
     height: 100%;
     width: 100%;
     overflow:auto;
+    float: left;
 }
 
 body {
@@ -72,7 +73,7 @@ p {
 }
 
 #bottom_text {
-    top: 86%;
+    top: 84%;
 }
 
 .white {
@@ -85,26 +86,36 @@ p {
 
 .image-container {
     position: relative;
-    padding-right: 35px;
+    /* padding-right: 35px; */
 }
 
 .row {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
     width: 100%;
-    padding-left: 14%;
+    /* padding-left: 14%;  */
 }
 
+/* div.row {  HELP FROM FLATIRON FOLKS
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  } */
+
 .column {
-    float: left;
+    justify-content: center;
 }
 
 .left {
-    width: 300px;
-    padding-left: 25px;
+    width: 300px; 
     padding-top: 4%;
+    float: left;
 }
 
 .right {
-    width: 450px;
+    float: left;
 }
 
 
